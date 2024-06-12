@@ -21,17 +21,16 @@ export default class InputProperty extends Component {
 
   handleChangeEnum(event) {
     const { propertyUpdateFunction, name, enumOptions } = this.props;
-    propertyUpdateFunction(name, enumOptions[event.target.value]);
+    propertyUpdateFunction(name, event.target.value);
   }
 
   render() {
     const { disabled, type, enumOptions } = this.props;
-
     return enumOptions ? (
       <SelectStyled disabled={disabled} onChange={this.handleChangeEnum}>
         <option value="" />
-        {enumOptions.map((option, i) => (
-          <option value={i}>{option.toString()}</option>
+        {enumOptions && enumOptions.map((option, i) => (
+          <option value={option.value}>{option.label}</option>
         ))}
       </SelectStyled>
     ) : type === "number" ? (
