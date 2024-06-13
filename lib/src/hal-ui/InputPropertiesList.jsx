@@ -51,7 +51,7 @@ class InputPropertiesList extends Component {
                   <Label2 className="label-italic">{`${property.type}, `}</Label2>
                   <Label3>{property.format ? property.format : '-'}</Label3>
                 </div>
-                <Label1>{`min:${property.minLength ? property.minLength: '-' }, max:${property.maxLength ? property.maxLength : '-'}`}</Label1>
+                <Label1>{`min:${property.minLength <= 0 || property.minLength >= 0 ? property.minLength : '-' }, max:${property.maxLength ? property.maxLength : '-'}`}</Label1>
               </PropertyWrapper>
               <InputPropertyLayout>
                 <Label>{property.description ? property.description : '-'}</Label>
